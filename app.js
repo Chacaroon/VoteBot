@@ -4,6 +4,7 @@ var ChangeTitle = require('./handlers/ChangeTitle');
 var ChangeDescription = require('./handlers/ChangeDescription');
 var AddCase = require('./handlers/AddCase');
 var IncreaseCaseCount = require('./handlers/IncreaseCaseCount');
+var http = require("http");
 
 var bot = new TelegramBot(process.env['BOT_TOKEN'], {polling: true});
 
@@ -30,3 +31,8 @@ bot.on('callback_query', function (msg) {
     }
 });
 
+http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.write('Hello World!');
+  res.end();
+}).listen(8080);
