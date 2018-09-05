@@ -26,6 +26,7 @@ function GenerateResponse(msg) {
 
     for (var i = 2; i < strings.length; i++) {
         var __case = strings[i].split(':');
+        if (!strings[i]) continue;
         caseButtons.push([{text: __case[0], callback_data: 'case.' + __case[0]}])
     }
 
